@@ -173,7 +173,7 @@ The architecture is modular, adaptable, and built to handle a high volume of con
 Here is a proposed project structure for implementing the decentralized permissionless system in Go:
 
 ```plaintext
-project-root/
+source/
 ├── cmd/                     # Command-line applications
 │   ├── node/                # Node-related commands (start, stop, etc.)
 │   └── cli/                 # Command-line client for interacting with the system
