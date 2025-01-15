@@ -204,12 +204,32 @@ The architecture is modular, adaptable, and built to handle a high volume of con
 +----------------------------+
 ```
 
+### Logical Architecture
+
+```mermaid
+graph TD
+  User[User Interfaces] -->|Submit Transaction| P2P[Peer-to-Peer Network]
+  P2P -->|Distribute Transactions| Validator[Validators]
+  Validator -->|Achieve Consensus| Blockchain[Blockchain Ledger]
+  Blockchain -->|Update Ledger| Nodes[All Nodes]
+  Nodes -->|Broadcast Updates| User
+```
+
 ### Transaction Flow
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant P2P
+    participant Validators
+    participant Blockchain
+    User->>P2P: Broadcast Transaction
+    P2P->>Validators: Distribute Transaction
+    Validators->>Blockchain: Propose Block
+    Blockchain->>Validators: Confirm Block
+    Validators->>P2P: Broadcast Block
+    P2P->>User: Confirm Transaction
 ```
-[User] --> [P2P Network] --> [Validators] --> [Consensus] --> [Ledger Update] --> [Broadcast]
-```
-
 ---
 
 ## Challenges and Solutions
